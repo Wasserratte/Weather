@@ -13,17 +13,58 @@
 
 <body>
     <div class="jumbotron bg-info">
-        <h1 class="text-center">Honigwetter</h1>
+        <h1 class="text-center"><b>Honigwetter</b></h1>
         <br>
         <p class="text-success text-center">Willkommen auf der Wetterseite Burghausen</p>
     </div>
 
     <div class="container">
-        <h3>Die aktuelle Temperatur beträgt <mark>{{data.cTemp}}</mark> Grad Celcius.</h3>
-        <hr>
-        <h3> Der Luftdruck, auf einer Höhe von <mark> {{data.altitude}}</mark> Meter, beträgt<mark>{{data.pressure}}</mark> kPa.</h3> 
-        <hr>
-        <h3>Die Luftfeuchtigkeit beträgt <mark>{{data.humidity}}</mark>%.</h3>   
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3><b>Hier das aktuelle Wetter aus Burghausen</b></h3>
+                <hr>
+                <div class="tale-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Temperatur</th>
+                                <th>Höhenmeter</th>
+                                <th>Luftdruck</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>{{data.cTemp}} Grad Celcius</td>
+                                <td>{{data.altitude}} Meter</td>
+                                <td>{{data.pressure}} kPa</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h3><b>Wetter Nachrichten</b></h3>
+                <ul>
+                    <li> {{main.Unterfranken}}</li>
+          
+                    <li> {{main.Mittelfranken}}</li>
+
+                    <li> {{main.Oberfranken}}</li>
+
+                    <li> {{main.Niederbayern}}</li>
+
+                    <li> {{main.Oberbayern}}</li>
+
+                    <li> {{main.Schwaben}}</li>
+
+                    <li> {{main.Oberpfalz}}</li>
+                </ul>
+                
+            </div>
+        </div>   
     </div>
 </body>
 </html>

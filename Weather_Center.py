@@ -41,14 +41,17 @@ def HonigWetter():
 
 
     lion = news.get_Weather()
+    link = news.get_Weather_link()
 
 
-    bayern = {'Mittelfranken': lion[0], 'Oberbayern': lion[1], 'Niederbayern': lion[2], 'Oberfranken': lion[3],
-        'Schwaben': lion[4], 'Oberpfalz': lion[5], 'Unterfranken': lion[6]}
+    bayern = {'Mittelfranken': lion[0], 'Niederbayern': lion[1], 'Oberbayern': lion[2], 'Oberfranken': lion[3],
+        'Oberpfalz': lion[4], 'Schwaben': lion[5], 'Unterfranken': lion[6]}
 
+    wetterlink = {'Mittelfranken': link[0], 'Niederbayern': link[1], 'Oberbayern': link[2], 'Oberfranken': link[3],
+        'Oberpfalz': link[4], 'Schwaben': link[5], 'Unterfranken': link[6]}
 
+    return render_template("home.html", data=weather_data, main=bayern, link=wetterlink)
 
-    return render_template("home.html", data=weather_data, main=bayern)
 
 
 

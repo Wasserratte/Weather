@@ -1,4 +1,4 @@
-
+#Import der Module
 from flask import Flask
 from flask import render_template
 import smbus
@@ -7,18 +7,21 @@ from humidityhelper import Humidity
 from mplhelper import MPL
 from wetterhelper import Unterfranken
 
+#Flask application
 app = Flask(__name__)
 
+#Instances
 wet = Humidity()
 
 air = MPL()
 
 news = Unterfranken()
 
-
+#Homepage
 @app.route("/")
 def HonigWetter():
 
+    #Pressure and Temperature
 
     sun = air.Value()
 
@@ -40,6 +43,8 @@ def HonigWetter():
     weather_data = {'pressure': pressure, 'altitude': altitude, 'cTemp': cTemp, 'fTemp': fTemp, 'humidity': humidity}
 
 
+    #Weather-Feed
+
     lion = news.get_Weather()
     link = news.get_Weather_link()
 
@@ -53,7 +58,11 @@ def HonigWetter():
     return render_template("home.html", data=weather_data, main=bayern, link=wetterlink)
 
 
+#Nachrichten-Feed
+@app.route("/Nachrichten")
+def Nachrichten():
 
+    return render_template("news.html", nachricht="Hello World")
 
 
 if __name__ == '__main__':

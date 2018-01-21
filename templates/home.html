@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="refresh" content="10">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale1">
-    <title>Honigwetter</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-</head>
+{% extends "base.html" %}
 
-<body>
-    <div class="jumbotron bg-info">
-        <h1 class="text-center"><b>Honigwetter</b></h1>
-        <br>
-        <p class="text-success text-center">Willkommen auf der Wetterseite Burghausen</p>
-    </div>
-
+    {% block content %}
     <div class="container">
 
         <div class="row">
@@ -46,47 +29,47 @@
             </div>
 
             <div class="col-sm-6">
-                <h3><b>Wetter Nachrichten</b></h3>
+                <h3><b>Wetter Bayerischer Rundfunk</b></h3>
                 <br>
                 <div class="list-group">
                     <a href="{{link.Unterfranken}}"> 
-                    <h4 class="list-group-item-heading">Unterfranken</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Unterfranken}}</p>
                     </a>
                     <hr>
           
                     <a href="{{link.Mittelfranken}}"> 
-                    <h4 class="list-group-item-heading">Mittelfranken</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Mittelfranken}}</p>
                     </a>
                     <hr>
 
                     <a href="{{link.Oberfranken}}"> 
-                    <h4 class="list-group-item-heading">Oberfranken</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Oberfranken}}</p>
                     </a>
                     <hr>
 
                     <a href="{{link.Niederbayern}}"> 
-                    <h4 class="list-group-item-heading">Niederbayern</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Niederbayern}}</p>
                     </a>
                     <hr>
 
                     <a href="{{link.Oberbayern}}"> 
-                    <h4 class="list-group-item-heading">Oberbayern</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Oberbayern}}</p>
                     </a>
                     <hr>
 
                     <a href="{{link.Schwaben}}"> 
-                    <h4 class="list-group-item-heading">Schwaben</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Schwaben}}</p>
                     </a>
                     <hr>
 
                     <a href="{{link.Oberpfalz}}"> 
-                    <h4 class="list-group-item-heading">Oberpfalz</h4>
+                    <h4 class="list-group-item-heading"></h4>
                     <p class="list-group-item-text">{{main.Oberpfalz}}</p>
                     </a>
                 </div>
@@ -94,8 +77,8 @@
             </div>
         </div>   
     </div>
-</body>
-</html>
+    {% endblock %}
+
 
 
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="10">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale1">
+    <title>Honigwetter</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="jumbotron bg-info">
+        <h1 class="text-center"><b>Honigwetter</b></h1>
+        <br>
+        <p class="text-success text-center">Willkommen auf der Wetterseite Burghausen</p>
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Startseite</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/Nachrichten">Nachrichten</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="container">
+
+        <hr>
+        <footer>
+            <p>Honig 2018</p>
+        </footer>
+    </div>
+                   
+</body>
+</html>
+
+
+

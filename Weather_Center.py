@@ -6,6 +6,7 @@ import time
 from humidityhelper import Humidity
 from mplhelper import MPL
 from wetterhelper import Unterfranken
+from nachrichtenhelper import News_Feed
 
 #Flask application
 app = Flask(__name__)
@@ -16,6 +17,8 @@ wet = Humidity()
 air = MPL()
 
 news = Unterfranken()
+
+br = News_Feed()
 
 #Homepage
 @app.route("/")
@@ -62,7 +65,9 @@ def HonigWetter():
 @app.route("/Nachrichten")
 def Nachrichten():
 
-    return render_template("news.html", nachricht="Hello World")
+    artikel = br.get_news()
+
+    return render_template("news.html", nachrichten=artikel)
 
 
 if __name__ == '__main__':

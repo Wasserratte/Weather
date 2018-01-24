@@ -2,6 +2,23 @@
 
     {% block content %}
 
-        <p>{{nachricht}}</p>
+    <div class="container">        
+        <h1 class="text-center"><b>Nachrichten Bayerischer Rundfunk</b></h1>
+        <hr>        
+
+        {% for article in nachrichten %}
+
+            <b><a href="{{article.link}}"{{article.title}}</a></b>
+            <br>
+            <i>{{article.updated}}</i>
+            <br>
+            <div class="well"><p>{{article.summary}}</p>
+            </div>
+            <hr>
+
+        {% endfor %}
+
+    </div>
+        
 
     {% endblock %}

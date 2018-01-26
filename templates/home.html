@@ -5,7 +5,7 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <h3><b>Hier das aktuelle Wetter aus Burghausen</b></h3>
+                <h3><b>Hier das Wetter vor Ort</b></h3>
                 <hr>
                 <div class="tale-responsive">
                     <table class="table table-striped">
@@ -26,6 +26,21 @@
                         </tbody>
                     </table>
                 </div>
+                <br>
+                <h2 class="text-info">Wettersuche</h2>
+                <hr>
+                <div class="well">Bitte Tragen sie den Ort ein und drücken Sie Enter um das Wetter anzuzeigen</div>
+                <br>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="openweather">Ort:</label>
+                        <input type="text", class="form-control" id="openweather" placeholder="Ort" name="openweather">
+                    </div>
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span> Enter</button>
+                </form>
+                <br>
+                <p>City: <b>{{API.city}}</b></p>
+                <p>{{API.description}} | {{API.temperature}}&#8451;</p>                 
             </div>
 
             <div class="col-sm-6">

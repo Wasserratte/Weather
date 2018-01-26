@@ -1,12 +1,14 @@
 #Import der Module
 from flask import Flask
 from flask import render_template
+from flask import request
 import smbus
 import time
 from humidityhelper import Humidity
 from mplhelper import MPL
 from wetterhelper import Unterfranken
 from nachrichtenhelper import News_Feed
+from apihelper import API_Weather
 
 #Flask application
 app = Flask(__name__)
@@ -19,6 +21,8 @@ air = MPL()
 news = Unterfranken()
 
 br = News_Feed()
+
+api = API_Weather()
 
 #Homepage
 @app.route("/")
@@ -58,7 +62,20 @@ def HonigWetter():
     wetterlink = {'Mittelfranken': link[0], 'Niederbayern': link[1], 'Oberbayern': link[2], 'Oberfranken': link[3],
         'Oberpfalz': link[4], 'Schwaben': link[5], 'Unterfranken': link[6]}
 
-    return render_template("home.html", data=weather_data, main=bayern, link=wetterlink)
+
+    #API-Weather
+
+    city = request.args.get("openweather")
+
+    if not city:
+        city = "Bad Kissingen"
+
+    api_weather = api.get_weather(city)
+
+    return render_template("home.html", data=weather_data, main=bayern, link=wetterlink, API=api_weather)
+
+
+
 
 
 #Nachrichten-Feed

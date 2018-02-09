@@ -2,6 +2,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from datetime import datetime
+from picamera import PiCamera
 import smbus
 import time
 from humidityhelper import Humidity
@@ -23,6 +25,10 @@ news = Unterfranken()
 br = News_Feed()
 
 api = API_Weather()
+
+#camera = PiCamera()
+
+now = datetime.now()
 
 #Homepage
 @app.route("/")
@@ -85,6 +91,18 @@ def Nachrichten():
     artikel = br.get_news()
 
     return render_template("news.html", nachrichten=artikel)
+
+#Camera
+@app.route("/Camera")
+def Picture():
+
+    camera = PiCamera()
+    camera.capture('/home/pi/my_app/app/weather/static/bild.jpg')
+    camera.close()
+
+    timestamp = "Tag: {0:%Y}-{0:%m}-{0:%d} -- Uhrzeit: {0:%H}:{0:%M} Uhr".format(now)
+
+    return render_template("picture.html", time=timestamp)
 
 
 if __name__ == '__main__':

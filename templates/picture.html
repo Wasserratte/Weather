@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block reload %}
+<meta http-equiv="refresh" content="5" >
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center"><b>Camera-Bild</b></h2>
+    <hr>
+    <br>
+    <img class="img-responsive" src="/static/bild.jpg" class="img-rounded" width="900" height="600" alt="Bild">
+    <br>
+    <p>{{time}}</p>
+</div>
+
+{% endblock %}
